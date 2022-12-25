@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+import { useState } from "react";
+import Topbar from "./scenes/global/Topbar"
+import Sidebar from "./scenes/global/Sidebar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [theme, colorMode] = useMode();
+    const [isSidebar, setIsSidebar] = useState(true);
+
+    return (
+        <ColorModeContext.Provider value={colorMode}>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <div className="app">
+                    <Sidebar isSidebar={isSidebar} />
+                    <main className="content">
+                        <Topbar setIsSidebar={setIsSidebar} />
+
+                    </main>
+                </div>
+            </ThemeProvider>
+        </ColorModeContext.Provider>
+
+    );
 }
 
 export default App;
