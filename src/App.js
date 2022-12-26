@@ -20,6 +20,7 @@ function App() {
                         <Topbar setIsSidebar={setIsSidebar} />
                         <Routes>
                             <Route path="/" element={<Dashboard></Dashboard>}></Route>
+                            /*<Route path="/" element={<Dashboard></Dashboard>}></Route>*/
                         </Routes>
 
                     </main>

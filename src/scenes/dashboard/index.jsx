@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import Header from "../../components/Header"
 import { Link } from "react-router-dom";
 
 import { tokens } from "../../theme";
@@ -21,8 +22,9 @@ const Dashboard = () =>{
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     return (
-        <Box m="10px">
+        <Box m="20px">
             <Box display="flex" justifyContent="space-between" alignItems="center">
+                <Header title="DASHBOARD" subtitle="Welcome to your dashboard"></Header>
             </Box>
         </Box>
     )
